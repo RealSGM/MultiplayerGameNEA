@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Other/MuzzleFlash.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[node name="Sniper" type="Spatial"]
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.588326, -0.286481, -0.698082 )
+
+[node name="Body2" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.083, 0, 0, 0, 0.509, -0.0187685, 0.0484259, -0.0681692 )
+layers = 2
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Body3" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.0610801, -0.0605376, 0, 0.0222313, 0.166325, -0.0187685, -0.00885911, 0.114521 )
+layers = 2
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Body" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.139, 0, 0, 0, 0.509, -0.0187685, -0.00898911, 0.661907 )
+layers = 2
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Handle" type="MeshInstance" parent="."]
+transform = Transform( 0.08, 0, 0, 0, 0.202, 0, 0, 0, 0.091, -0.0187685, -0.141769, 1.05949 )
+layers = 2
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Handle2" type="MeshInstance" parent="."]
+transform = Transform( 0.08, 0, 0, 0, 0.165469, 0.0326939, 0, -0.115862, 0.0466917, -0.0187685, -0.143675, 0.677008 )
+layers = 2
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Handle3" type="MeshInstance" parent="."]
+transform = Transform( 0.08, 0, 0, 0, -5.7699e-09, -0.057, 0, 0.132, -2.49155e-09, -0.0187685, -0.285168, 0.876491 )
+layers = 2
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Scope2" type="MeshInstance" parent="."]
+transform = Transform( 0.028, 0, 0, 0, -9.6165e-10, -0.0709998, 0, 0.022, -3.10351e-09, -0.0187685, 0.187194, 0.235655 )
+layers = 2
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Scope3" type="MeshInstance" parent="."]
+transform = Transform( 0.028, 0, 0, 0, -9.6165e-10, -0.0709998, 0, 0.022, -3.10351e-09, -0.0187685, 0.187194, 0.418615 )
+layers = 2
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Scope" type="MeshInstance" parent="."]
+transform = Transform( 0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.313, -0.0187685, 0.282778, 0.315529 )
+layers = 2
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Magazine" type="MeshInstance" parent="."]
+transform = Transform( 0.06, 0, 0, 0, 0.208, 0, 0, 0, 0.091, -0.0187685, -0.0801062, 0.246873 )
+layers = 2
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Barrel" type="MeshInstance" parent="."]
+transform = Transform( 0.05, 0, 0, 0, 0.035, 0, 0, 0, 0.811, -0.0187685, 0.0984899, -1.09212 )
+layers = 2
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="ReloadTimer" type="Timer" parent="."]
+
+[node name="MuzzleFlash" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.077305, -1.9114 )
+visibility_aabb = AABB( -4, -4, -3.90723, 8, 8, 8 )
+
+[node name="MuzzleFlash2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.077305, -1.9114 )
+visibility_aabb = AABB( -4, -4, -3.90723, 8, 8, 8 )

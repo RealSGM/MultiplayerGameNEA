@@ -1,0 +1,145 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/UI/LoadoutSelection.gd" type="Script" id=1]
+
+[node name="LoadoutSelection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FG" type="ColorRect" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+color = Color( 0.0156863, 0.0156863, 0.0156863, 0.627451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CC" type="CenterContainer" parent="BG/FG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GC" type="HBoxContainer" parent="BG/FG/CC"]
+margin_left = 372.0
+margin_top = 280.0
+margin_right = 612.0
+margin_bottom = 280.0
+custom_constants/separation = 120
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VB0" type="VBoxContainer" parent="BG/FG/CC/GC"]
+custom_constants/separation = 10
+
+[node name="VB1" type="VBoxContainer" parent="BG/FG/CC/GC"]
+margin_left = 120.0
+margin_right = 120.0
+custom_constants/separation = 10
+
+[node name="VB2" type="VBoxContainer" parent="BG/FG/CC/GC"]
+margin_left = 240.0
+margin_right = 240.0
+custom_constants/separation = 10
+
+[node name="ExitButton" type="Button" parent="BG/FG"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 87.0
+margin_bottom = 30.0
+text = "Exit Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmSection" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="ConfirmSection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0.0784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FG" type="ColorRect" parent="ConfirmSection/BG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -184.0
+margin_top = -110.0
+margin_right = 184.0
+margin_bottom = 111.0
+color = Color( 0.196078, 0.192157, 0.2, 0.552941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBC" type="VBoxContainer" parent="ConfirmSection/BG/FG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -145.0
+margin_top = -29.0
+margin_right = 145.0
+margin_bottom = 29.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmLabel" type="Label" parent="ConfirmSection/BG/FG/VBC"]
+margin_right = 290.0
+margin_bottom = 14.0
+text = "Are you sure you want to delete this loadout?"
+align = 1
+
+[node name="HBC" type="HBoxContainer" parent="ConfirmSection/BG/FG/VBC"]
+margin_top = 18.0
+margin_right = 290.0
+margin_bottom = 58.0
+custom_constants/separation = 50
+alignment = 1
+
+[node name="YesBtn" type="Button" parent="ConfirmSection/BG/FG/VBC/HBC"]
+margin_left = 80.0
+margin_right = 120.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+text = "Yes"
+
+[node name="NoBtn" type="Button" parent="ConfirmSection/BG/FG/VBC/HBC"]
+margin_left = 170.0
+margin_right = 210.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 40, 40 )
+text = "No"
+
+[connection signal="pressed" from="BG/FG/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="button_down" from="ConfirmSection/BG/FG/VBC/HBC/YesBtn" to="." method="_on_YesBtn_button_down"]
+[connection signal="pressed" from="ConfirmSection/BG/FG/VBC/HBC/NoBtn" to="." method="_on_NoBtn_pressed"]

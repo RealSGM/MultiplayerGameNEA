@@ -1,0 +1,5 @@
+vsync,True
+max_fps,999
+fov,90
+mouse_sensitivity,0.2
+zoom_sensitivity_percentage,0.2

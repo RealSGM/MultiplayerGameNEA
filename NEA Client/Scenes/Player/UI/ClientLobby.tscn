@@ -1,0 +1,131 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/UI/ClientLobby.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Player/UI/Options.tscn" type="PackedScene" id=2]
+
+[node name="ClientLobby" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0627451, 0.0627451, 0.0627451, 0.627451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FG" type="ColorRect" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+color = Color( 0.0156863, 0.0156863, 0.0156863, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CC" type="CenterContainer" parent="BG/FG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBC" type="VBoxContainer" parent="BG/FG/CC"]
+margin_left = 430.0
+margin_top = 210.0
+margin_right = 554.0
+margin_bottom = 350.0
+custom_constants/separation = 20
+
+[node name="JoinButton" type="Button" parent="BG/FG/CC/VBC"]
+margin_right = 124.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 97, 20 )
+text = "Join Game Queue"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeLoadoutButton" type="Button" parent="BG/FG/CC/VBC"]
+margin_top = 40.0
+margin_right = 124.0
+margin_bottom = 60.0
+text = "Change Loadout"
+
+[node name="OptionsButton" type="Button" parent="BG/FG/CC/VBC"]
+margin_top = 80.0
+margin_right = 124.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 97, 20 )
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="BG/FG/CC/VBC"]
+margin_top = 120.0
+margin_right = 124.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 97, 20 )
+text = "Quit"
+
+[node name="LoadingScreen" type="CenterContainer" parent="BG/FG"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBC" type="VBoxContainer" parent="BG/FG/LoadingScreen"]
+margin_left = 451.0
+margin_top = 261.0
+margin_right = 533.0
+margin_bottom = 299.0
+
+[node name="Label" type="Label" parent="BG/FG/LoadingScreen/VBC"]
+margin_right = 82.0
+margin_bottom = 31.0
+text = "In Queue"
+align = 1
+
+[node name="Timer" type="Timer" parent="BG/FG/LoadingScreen/VBC/Label"]
+wait_time = 0.5
+autostart = true
+
+[node name="ExitQueue" type="Button" parent="BG/FG/LoadingScreen/VBC"]
+margin_top = 35.0
+margin_right = 82.0
+margin_bottom = 55.0
+text = "Exit Queue"
+
+[node name="Options" parent="BG/FG" instance=ExtResource( 2 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 984.0
+margin_bottom = 560.0
+
+[node name="HideButton" type="Button" parent="BG/FG"]
+visible = false
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 42.0
+margin_bottom = 20.0
+text = "Hide"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="BG/FG/CC/VBC/JoinButton" to="." method="_on_JoinButton_pressed"]
+[connection signal="pressed" from="BG/FG/CC/VBC/ChangeLoadoutButton" to="." method="_on_ChangeLoadoutButton_pressed"]
+[connection signal="pressed" from="BG/FG/CC/VBC/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="BG/FG/CC/VBC/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="timeout" from="BG/FG/LoadingScreen/VBC/Label/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="BG/FG/LoadingScreen/VBC/ExitQueue" to="." method="_on_ExitQueue_pressed"]
+[connection signal="pressed" from="BG/FG/HideButton" to="." method="_on_HideButton_pressed"]

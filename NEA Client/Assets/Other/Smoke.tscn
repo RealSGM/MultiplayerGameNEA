@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Other/SmokeParticlesMaterial.tres" type="Material" id=1]
+[ext_resource path="res://Assets/ParticlesFX/PNG (Transparent)/smoke_04.png" type="Texture" id=2]
+[ext_resource path="res://Materials/lasershader.tres" type="Material" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.25098, 0.247059, 0.266667, 1 )
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=2]
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.05, 0.1, 0.05 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.05, 0.1, 0.05 )
+
+[node name="Smoke" type="RigidBody"]
+mass = 0.204082
+
+[node name="SmokeParticles" type="Particles" parent="."]
+material_override = SubResource( 1 )
+amount = 200
+lifetime = 10.0
+speed_scale = 10.0
+randomness = 0.19
+process_material = ExtResource( 1 )
+draw_pass_1 = SubResource( 2 )
+
+[node name="SmokeCanister" type="CSGBox" parent="."]
+width = 0.1
+height = 0.2
+depth = 0.1
+material = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 3 )
+
+[node name="CanisterArea" type="Area" parent="."]
+
+[node name="CanisterCollison" type="CollisionShape" parent="CanisterArea"]
+shape = SubResource( 4 )
+
+[node name="SmokeTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true

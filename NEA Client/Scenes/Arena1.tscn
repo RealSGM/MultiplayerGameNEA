@@ -1,0 +1,470 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Materials/prototype_orange.tres" type="Material" id=1]
+[ext_resource path="res://Materials/grapplematerial.tres" type="Material" id=2]
+[ext_resource path="res://Materials/prototype_black.tres" type="Material" id=3]
+[ext_resource path="res://Assets/Grid/Light/texture_13.png" type="Texture" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 4 )
+uv1_triplanar = true
+
+[node name="Arena1" type="Spatial"]
+
+[node name="SpawningArea" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="SpawningPlatform" type="CSGBox" parent="SpawningArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+width = 33.0
+depth = 33.0
+material = ExtResource( 3 )
+
+[node name="Walkway" type="CSGBox" parent="SpawningArea"]
+transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0 )
+width = 10.0
+depth = 228.0
+material = ExtResource( 3 )
+
+[node name="Walkway2" type="CSGBox" parent="SpawningArea"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+width = 10.0
+depth = 100.0
+material = ExtResource( 3 )
+
+[node name="Ramp" type="CSGPolygon" parent="SpawningArea"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 2, -17.5 )
+polygon = PoolVector2Array( 0, 0, -2, -1, 1, 1, 1, 0 )
+depth = 10.0
+material = ExtResource( 3 )
+
+[node name="Ramp2" type="CSGPolygon" parent="SpawningArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 2, 5 )
+polygon = PoolVector2Array( 0, 0, -2, -1, 1, 1, 1, 0 )
+depth = 10.0
+material = ExtResource( 3 )
+
+[node name="Ramp3" type="CSGPolygon" parent="SpawningArea"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 17.5, 2, -5 )
+polygon = PoolVector2Array( 0, 0, -2, -1, 1, 1, 1, 0 )
+depth = 10.0
+material = ExtResource( 3 )
+
+[node name="Ramp4" type="CSGPolygon" parent="SpawningArea"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 2, 17.5 )
+polygon = PoolVector2Array( 0, 0, -2, -1, 1, 1, 1, 0 )
+depth = 10.0
+material = ExtResource( 3 )
+
+[node name="RoomArea" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="SpawningPlatform" type="CSGBox" parent="RoomArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.4592, 0, 0 )
+width = 41.0
+depth = 41.0
+material = ExtResource( 3 )
+
+[node name="SpawningPlatform2" type="CSGBox" parent="RoomArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 70.4592, 21, 0 )
+width = 41.0
+depth = 41.0
+material = ExtResource( 3 )
+
+[node name="Wall" type="CSGBox" parent="RoomArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 92, 10, 0 )
+height = 24.0
+depth = 44.0
+material = ExtResource( 1 )
+
+[node name="Wall2" type="CSGBox" parent="RoomArea"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 71, 10, 21 )
+height = 24.0
+depth = 42.0
+material = ExtResource( 1 )
+
+[node name="Wall3" type="CSGBox" parent="RoomArea"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 71, 10, -21 )
+height = 24.0
+depth = 42.0
+material = ExtResource( 1 )
+
+[node name="GrappleArea" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="SpawningPlatform" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -184 )
+width = 141.0
+depth = 141.0
+material = ExtResource( 3 )
+
+[node name="GrappleBox" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23, -154 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox2" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 16, -139 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox3" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 23, -157 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox4" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.2958, 20, -134 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox5" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.7042, 24, -170 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox6" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7042, 9, -174 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox7" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.7042, 36, -187 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox8" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 49.7042, 12, -211 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox9" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.7042, 31, -148 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox10" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7042, 51, -155 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox12" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.2958, 20, -180 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox13" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7042, 7, -227 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox14" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2958, 29, -197 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox15" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2958, 23, -179 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox16" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.7042, 35, -197 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox19" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.70421, 26, -177 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox20" type="CSGBox" parent="GrappleArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.29579, 15, -196 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox21" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 14.3226, 70, -214.114 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox22" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 28.8301, 63, -225.756 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox23" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 38.6602, 70, -204.487 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox24" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 58.4218, 67, -223.004 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox25" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -18.5105, 71, -206.348 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox26" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -32.1028, 56, -205.849 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox27" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -20.0127, 83, -189.15 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox28" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -48.4406, 59, -171.921 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox29" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -13.7824, 78, -227.857 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox30" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -4.96899, 98, -218.248 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox31" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -4.03525, 37, -244.915 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox32" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 44.5842, 67, -179.089 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox33" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -27.4677, 54, -149.737 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox34" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -1.14744, 26, -128.191 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox35" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 20.6949, 70, -186.525 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox36" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -30.3283, 82, -181.562 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox37" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 38.8023, 37, -138.192 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox38" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 21.0553, 11, -164.688 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox39" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 2.85995, 73, -193.374 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="GrappleBox40" type="CSGBox" parent="GrappleArea"]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 4.70387, 62, -173.21 )
+width = 5.0
+height = 5.0
+depth = 5.0
+material = ExtResource( 2 )
+
+[node name="WallRunArea" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="SpawningPlatform" type="CSGBox" parent="WallRunArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 0, 0 )
+width = 108.0
+depth = 46.0
+material = ExtResource( 3 )
+
+[node name="Wall" type="CSGBox" parent="WallRunArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 7, 22 )
+width = 108.0
+height = 12.0
+material = ExtResource( 1 )
+
+[node name="Wall4" type="CSGBox" parent="WallRunArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 7, -22 )
+width = 108.0
+height = 12.0
+material = ExtResource( 1 )
+
+[node name="Wall5" type="CSGBox" parent="WallRunArea"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -157, 7, 0 )
+width = 46.0
+height = 12.0
+material = ExtResource( 1 )
+
+[node name="Wall2" type="CSGBox" parent="WallRunArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -84, 21, -6 )
+width = 58.0
+height = 36.0
+material = ExtResource( 1 )
+
+[node name="Wall3" type="CSGBox" parent="WallRunArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -83, 21, 6 )
+width = 58.0
+height = 36.0
+material = ExtResource( 1 )
+
+[node name="TowerArea" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="SpawningPlatform" type="CSGBox" parent="TowerArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.905, 0, 217.13 )
+width = 201.0
+depth = 207.933
+material = ExtResource( 3 )
+
+[node name="Tower" type="CSGBox" parent="TowerArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.5888, 19.6311, 122.261 )
+width = 12.0
+height = 40.0
+depth = 14.0
+material = SubResource( 1 )
+
+[node name="Tower8" type="CSGBox" parent="TowerArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5888, 19.6311, 122.261 )
+width = 12.0
+height = 40.0
+depth = 14.0
+material = SubResource( 1 )
+
+[node name="Tower9" type="CSGBox" parent="TowerArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -71.4112, 17.6311, 163.261 )
+width = 12.0
+height = 34.0
+depth = 86.0
+material = SubResource( 1 )
+
+[node name="Tower3" type="CSGBox" parent="TowerArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.5888, 20.6311, 189.261 )
+width = 12.0
+height = 40.0
+depth = 42.0
+material = SubResource( 1 )
+
+[node name="Tower4" type="CSGBox" parent="TowerArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4112, 20.6311, 143.261 )
+width = 12.0
+height = 40.0
+depth = 14.0
+material = SubResource( 1 )
+
+[node name="Tower2" type="CSGBox" parent="TowerArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 79.5888, 37.6311, 163.261 )
+width = 26.0
+height = 76.0
+depth = 32.0
+material = SubResource( 1 )
+
+[node name="Tower5" type="CSGBox" parent="TowerArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4112, 37.6311, 212.261 )
+width = 32.0
+height = 76.0
+depth = 32.0
+material = SubResource( 1 )
+
+[node name="Tower7" type="CSGBox" parent="TowerArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.4112, 31.6311, 270.261 )
+width = 106.0
+height = 60.0
+depth = 32.0
+material = SubResource( 1 )
+
+[node name="Tower6" type="CSGBox" parent="TowerArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.5888, 37.6311, 254.261 )
+width = 32.0
+height = 76.0
+depth = 32.0
+material = SubResource( 1 )

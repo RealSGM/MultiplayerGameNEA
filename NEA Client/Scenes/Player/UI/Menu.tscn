@@ -1,0 +1,49 @@
+[gd_scene format=2]
+
+[node name="Menu" type="Control"]
+anchor_left = 0.000587732
+anchor_right = 1.00059
+anchor_bottom = 1.0
+margin_left = 1.18921
+margin_top = 0.561218
+margin_right = 1.18921
+margin_bottom = 0.561218
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBC" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -81.0
+margin_top = -34.0
+margin_right = 81.0
+margin_bottom = 34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Button" parent="VBC"]
+margin_right = 162.0
+margin_bottom = 20.0
+text = "Options"
+
+[node name="Exit" type="Button" parent="VBC"]
+margin_top = 24.0
+margin_right = 162.0
+margin_bottom = 44.0
+text = "Exit Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitToLobby" type="Button" parent="VBC"]
+margin_top = 48.0
+margin_right = 162.0
+margin_bottom = 68.0
+text = "Exit To Lobby"
+__meta__ = {
+"_edit_use_anchors_": false
+}

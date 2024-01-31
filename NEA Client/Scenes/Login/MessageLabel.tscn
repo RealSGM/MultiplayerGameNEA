@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="MessageLabel" type="Label"]
+margin_top = 168.0
+margin_right = 281.0
+margin_bottom = 182.0
+align = 1

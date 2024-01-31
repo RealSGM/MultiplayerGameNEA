@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Login/LoginSection.gd" type="Script" id=1]
+
+[node name="Login" type="VBoxContainer"]
+margin_left = 371.0
+margin_top = 234.0
+margin_right = 652.0
+margin_bottom = 365.0
+custom_constants/separation = 8
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 281.0
+margin_bottom = 14.0
+text = "LOGIN"
+align = 1
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_top = 22.0
+margin_right = 281.0
+margin_bottom = 75.0
+custom_constants/vseparation = 5
+custom_constants/hseparation = 15
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UserName" type="Label" parent="GridContainer"]
+margin_top = 5.0
+margin_right = 66.0
+margin_bottom = 19.0
+text = "Username"
+align = 1
+valign = 1
+
+[node name="UserNameEdit" type="LineEdit" parent="GridContainer"]
+margin_left = 81.0
+margin_right = 281.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 200, 0 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Password" type="Label" parent="GridContainer"]
+margin_top = 34.0
+margin_right = 66.0
+margin_bottom = 48.0
+text = "Password"
+align = 1
+valign = 1
+
+[node name="PasswordEdit" type="LineEdit" parent="GridContainer"]
+margin_left = 81.0
+margin_top = 29.0
+margin_right = 281.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 200, 0 )
+align = 1
+secret = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterButton" type="Button" parent="."]
+margin_top = 83.0
+margin_right = 281.0
+margin_bottom = 103.0
+text = "Enter"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Register" type="Button" parent="."]
+margin_top = 111.0
+margin_right = 281.0
+margin_bottom = 131.0
+text = "Register"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="EnterButton" to="." method="_on_EnterButton_pressed"]
+[connection signal="pressed" from="Register" to="." method="_on_Register_pressed"]

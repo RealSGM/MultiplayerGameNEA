@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Player/ServerPlayer.gd" type="Script" id=1]
+[ext_resource path="res://Materials/outlineshader.tres" type="Material" id=2]
+[ext_resource path="res://Assets/Other/ServerPlayerHead.tres" type="SphereMesh" id=3]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.55, 0.25, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_world_triplanar = true
+albedo_color = Color( 0.32549, 0.309804, 0.309804, 1 )
+uv1_triplanar = true
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.5
+mid_height = 1.2
+
+[sub_resource type="CapsuleShape" id=3]
+radius = 0.55
+height = 1.75
+
+[node name="KinematicBody" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00632429, 0, 0.00148201 )
+script = ExtResource( 1 )
+
+[node name="Head" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34627, 0 )
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="ProjectileSpawn" type="Spatial" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00243533, -0.8, -1.99937 )
+
+[node name="ShieldSpawn" type="Spatial" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="VisorSpawn" type="MeshInstance" parent="Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0176256, 0, -0.32569 )
+mesh = SubResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
+
+[node name="Body" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0107226, 2.38419e-07, -0.00505352 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.266978, 0 )
+shape = SubResource( 3 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnchorPoint" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0178437, -0.00547504, 0.00225723 )
+visible = false
+
+[node name="HookLine" type="CSGCylinder" parent="AnchorPoint"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+radius = 0.05
+material = ExtResource( 2 )
+
+[node name="CheckTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="CheckTimer" to="." method="_on_Timer_timeout"]

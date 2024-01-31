@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id=2]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, -200.889 ), 0.0, 0.0, 0, 0, Vector2( 1, 314.787 ), 1021.62, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.344828, 0.560345, 0.770115, 0.856322, 1 )
+colors = PoolColorArray( 1, 0, 0, 1, 1, 0.585938, 0, 1, 0, 1, 0.015625, 1, 0.482234, 0.77096, 0, 1, 0.320432, 0.85685, 0, 1, 0.0507622, 1, 0, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 1
+emission_sphere_radius = 0.25
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, -2, 0 )
+angular_velocity = 129.67
+angular_velocity_random = 0.87
+angular_velocity_curve = SubResource( 3 )
+scale = 0.4
+color_ramp = SubResource( 5 )
+
+[sub_resource type="QuadMesh" id=7]
+size = Vector2( 0.1, 0.1 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "start_charge"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:process_material:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.2, 0.4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:process_material:emission_sphere_radius")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.1, 0.25 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:process_material:gravity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -2, 0 ) ]
+}
+
+[node name="LaserRifleParticles" type="Particles"]
+transform = Transform( -1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 0, 0 )
+material_override = SubResource( 1 )
+amount = 100
+speed_scale = 4.51
+randomness = 1.0
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 7 )
+
+[node name="AP" type="AnimationPlayer" parent="."]
+anims/start_charge = SubResource( 8 )

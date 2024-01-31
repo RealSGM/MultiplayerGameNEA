@@ -1,0 +1,14 @@
+move_backwards,S
+move_left,A
+move_right,D
+jump,Space
+open_chat,T
+open_scoreboard,Tab
+shoot_hook,Shift
+fire_weapon,left_click
+primary_weapon,Q
+secondary_weapon,E
+alternate_fire,right_click
+ability,C
+move_forwards,W
+reload,R

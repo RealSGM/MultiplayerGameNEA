@@ -1,0 +1,427 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/UI/Options.gd" type="Script" id=1]
+
+[sub_resource type="ExternalTexture" id=1]
+
+[node name="Options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0627451, 0.0627451, 0.0627451, 0.627451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FG" type="ColorRect" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+color = Color( 0.0156863, 0.0156863, 0.0156863, 0.784314 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBC" type="HBoxContainer" parent="BG/FG"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -470.0
+margin_top = 20.0
+margin_right = 470.0
+margin_bottom = 108.0
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AccountDetails" type="Button" parent="BG/FG/HBC"]
+margin_left = 210.0
+margin_right = 370.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 160, 80 )
+text = "Account Details"
+
+[node name="Controls" type="Button" parent="BG/FG/HBC"]
+margin_left = 390.0
+margin_right = 550.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 160, 80 )
+text = "Controls"
+
+[node name="Settings" type="Button" parent="BG/FG/HBC"]
+margin_left = 570.0
+margin_right = 730.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 160, 80 )
+text = "Settings"
+
+[node name="ControlsContainer" type="Control" parent="BG/FG"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 115.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ApplyControls" type="Button" parent="BG/FG/ControlsContainer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -107.0
+margin_top = -22.0
+margin_right = -2.0
+margin_bottom = -2.0
+text = "Apply Controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SC" type="ScrollContainer" parent="BG/FG/ControlsContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 71.0
+margin_top = 130.0
+margin_right = -87.0
+margin_bottom = -90.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CC" type="CenterContainer" parent="BG/FG/ControlsContainer/SC"]
+margin_right = 976.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 976, 400 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GC" type="GridContainer" parent="BG/FG/ControlsContainer/SC/CC"]
+margin_left = 488.0
+margin_top = 200.0
+margin_right = 488.0
+margin_bottom = 200.0
+custom_constants/vseparation = 50
+custom_constants/hseparation = 100
+
+[node name="FG" type="ColorRect" parent="BG/FG/ControlsContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0.0392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TempLabel" type="Label" parent="BG/FG/ControlsContainer/FG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -62.5
+margin_top = -7.0
+margin_right = 62.5
+margin_bottom = 7.0
+text = "Please Press A Key."
+
+[node name="SettingsContainer" type="Control" parent="BG/FG"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 120.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SC" type="ScrollContainer" parent="BG/FG/SettingsContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -488.0
+margin_top = -160.0
+margin_right = 488.0
+margin_bottom = 260.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CC" type="CenterContainer" parent="BG/FG/SettingsContainer/SC"]
+margin_right = 976.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 976, 400 )
+
+[node name="VBC" type="VBoxContainer" parent="BG/FG/SettingsContainer/SC/CC"]
+margin_left = 295.0
+margin_top = 148.0
+margin_right = 680.0
+margin_bottom = 252.0
+alignment = 1
+
+[node name="VSYNC" type="HBoxContainer" parent="BG/FG/SettingsContainer/SC/CC/VBC"]
+margin_right = 385.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="BG/FG/SettingsContainer/SC/CC/VBC/VSYNC"]
+margin_top = 5.0
+margin_right = 139.0
+margin_bottom = 19.0
+text = "Vertical Sync Enabled:"
+
+[node name="CheckBox" type="CheckBox" parent="BG/FG/SettingsContainer/SC/CC/VBC/VSYNC"]
+margin_left = 143.0
+margin_right = 167.0
+margin_bottom = 24.0
+align = 1
+
+[node name="MAX_FPS" type="HBoxContainer" parent="BG/FG/SettingsContainer/SC/CC/VBC"]
+margin_top = 28.0
+margin_right = 385.0
+margin_bottom = 44.0
+
+[node name="MaxFPS" type="Label" parent="BG/FG/SettingsContainer/SC/CC/VBC/MAX_FPS"]
+margin_top = 1.0
+margin_right = 98.0
+margin_bottom = 15.0
+text = "Maximum FPS: "
+
+[node name="FPSSlider" type="HSlider" parent="BG/FG/SettingsContainer/SC/CC/VBC/MAX_FPS"]
+margin_left = 102.0
+margin_right = 282.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 180, 0 )
+min_value = 20.0
+max_value = 999.0
+value = 20.0
+rounded = true
+
+[node name="FPSDisplay" type="Label" parent="BG/FG/SettingsContainer/SC/CC/VBC/MAX_FPS"]
+margin_left = 286.0
+margin_top = 1.0
+margin_right = 318.0
+margin_bottom = 15.0
+text = "[100]"
+
+[node name="FOV" type="HBoxContainer" parent="BG/FG/SettingsContainer/SC/CC/VBC"]
+margin_top = 48.0
+margin_right = 385.0
+margin_bottom = 64.0
+
+[node name="FovLabel" type="Label" parent="BG/FG/SettingsContainer/SC/CC/VBC/FOV"]
+margin_top = 1.0
+margin_right = 96.0
+margin_bottom = 15.0
+text = "Field Of View:  "
+
+[node name="FOVSlider" type="HSlider" parent="BG/FG/SettingsContainer/SC/CC/VBC/FOV"]
+margin_left = 100.0
+margin_right = 280.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 180, 0 )
+min_value = 60.0
+max_value = 90.0
+value = 60.0
+rounded = true
+
+[node name="FovDisplay" type="Label" parent="BG/FG/SettingsContainer/SC/CC/VBC/FOV"]
+margin_left = 284.0
+margin_top = 1.0
+margin_right = 308.0
+margin_bottom = 15.0
+text = "[90]"
+
+[node name="MouseSens" type="HBoxContainer" parent="BG/FG/SettingsContainer/SC/CC/VBC"]
+margin_top = 68.0
+margin_right = 385.0
+margin_bottom = 84.0
+
+[node name="SensLabel" type="Label" parent="BG/FG/SettingsContainer/SC/CC/VBC/MouseSens"]
+margin_top = 1.0
+margin_right = 117.0
+margin_bottom = 15.0
+text = "Mouse Sensitivity:"
+
+[node name="SensSlider" type="HSlider" parent="BG/FG/SettingsContainer/SC/CC/VBC/MouseSens"]
+margin_left = 121.0
+margin_right = 301.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 180, 0 )
+min_value = 0.2
+max_value = 2.0
+step = 0.1
+value = 2.0
+
+[node name="SensDisplay" type="Label" parent="BG/FG/SettingsContainer/SC/CC/VBC/MouseSens"]
+margin_left = 305.0
+margin_top = 1.0
+margin_right = 321.0
+margin_bottom = 15.0
+text = "[2]"
+
+[node name="ZoomPercent" type="HBoxContainer" parent="BG/FG/SettingsContainer/SC/CC/VBC"]
+margin_top = 88.0
+margin_right = 385.0
+margin_bottom = 104.0
+
+[node name="ZoomSensLabel" type="Label" parent="BG/FG/SettingsContainer/SC/CC/VBC/ZoomPercent"]
+margin_top = 1.0
+margin_right = 181.0
+margin_bottom = 15.0
+text = "Sniper Sensitivty Percentage"
+
+[node name="ZoomSensSlider" type="HSlider" parent="BG/FG/SettingsContainer/SC/CC/VBC/ZoomPercent"]
+margin_left = 185.0
+margin_right = 365.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 180, 0 )
+min_value = 0.2
+max_value = 2.0
+step = 0.1
+value = 2.0
+
+[node name="ZoomSensDisplay" type="Label" parent="BG/FG/SettingsContainer/SC/CC/VBC/ZoomPercent"]
+margin_left = 369.0
+margin_top = 1.0
+margin_right = 385.0
+margin_bottom = 15.0
+text = "[2]"
+
+[node name="ApplySettings" type="Button" parent="BG/FG/SettingsContainer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -106.0
+margin_top = -23.0
+margin_right = -3.0
+margin_bottom = -3.0
+text = "Apply Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AccountDetailsContainer" type="CenterContainer" parent="BG/FG"]
+anchor_right = 1.00116
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 120.0
+margin_right = -4.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBC" type="VBoxContainer" parent="BG/FG/AccountDetailsContainer"]
+margin_left = 213.0
+margin_top = 171.0
+margin_right = 763.0
+margin_bottom = 249.0
+custom_constants/separation = 30
+
+[node name="HBC" type="HBoxContainer" parent="BG/FG/AccountDetailsContainer/VBC"]
+margin_right = 550.0
+margin_bottom = 24.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UsernameField" type="LineEdit" parent="BG/FG/AccountDetailsContainer/VBC/HBC"]
+margin_right = 100.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 100, 0 )
+expand_to_text_length = true
+right_icon = SubResource( 1 )
+placeholder_text = "Username"
+
+[node name="ChangeUsername" type="Button" parent="BG/FG/AccountDetailsContainer/VBC/HBC"]
+margin_left = 110.0
+margin_right = 210.0
+margin_bottom = 24.0
+text = "Change Name"
+
+[node name="ConfirmChangeUsername" type="Button" parent="BG/FG/AccountDetailsContainer/VBC/HBC"]
+margin_left = 220.0
+margin_right = 286.0
+margin_bottom = 24.0
+disabled = true
+text = "Confirm "
+
+[node name="AccountLabel" type="Label" parent="BG/FG/AccountDetailsContainer/VBC/HBC"]
+margin_left = 296.0
+margin_top = 5.0
+margin_right = 296.0
+margin_bottom = 19.0
+
+[node name="HBC2" type="HBoxContainer" parent="BG/FG/AccountDetailsContainer/VBC"]
+margin_top = 54.0
+margin_right = 550.0
+margin_bottom = 78.0
+alignment = 1
+
+[node name="OldPasswordField" type="LineEdit" parent="BG/FG/AccountDetailsContainer/VBC/HBC2"]
+margin_right = 150.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 150, 0 )
+secret = true
+expand_to_text_length = true
+placeholder_text = "Old Password"
+
+[node name="NewPasswordField" type="LineEdit" parent="BG/FG/AccountDetailsContainer/VBC/HBC2"]
+margin_left = 154.0
+margin_right = 304.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 150, 0 )
+secret = true
+expand_to_text_length = true
+placeholder_text = "New Password"
+
+[node name="ChangePassword" type="Button" parent="BG/FG/AccountDetailsContainer/VBC/HBC2"]
+margin_left = 308.0
+margin_right = 430.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 100, 0 )
+text = "Change Password"
+
+[node name="ConfirmChangePassword" type="Button" parent="BG/FG/AccountDetailsContainer/VBC/HBC2"]
+margin_left = 434.0
+margin_right = 546.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 100, 0 )
+disabled = true
+text = "Confirm Change"
+
+[node name="PWLabel" type="Label" parent="BG/FG/AccountDetailsContainer/VBC/HBC2"]
+margin_left = 550.0
+margin_top = 5.0
+margin_right = 550.0
+margin_bottom = 19.0
+
+[connection signal="pressed" from="BG/FG/HBC/AccountDetails" to="." method="_on_AccountDetails_pressed"]
+[connection signal="pressed" from="BG/FG/HBC/Controls" to="." method="_on_Controls_pressed"]
+[connection signal="pressed" from="BG/FG/HBC/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="BG/FG/ControlsContainer/ApplyControls" to="." method="_on_ApplyControls_pressed"]
+[connection signal="toggled" from="BG/FG/SettingsContainer/SC/CC/VBC/VSYNC/CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="value_changed" from="BG/FG/SettingsContainer/SC/CC/VBC/MAX_FPS/FPSSlider" to="." method="_on_FPSSlider_value_changed"]
+[connection signal="value_changed" from="BG/FG/SettingsContainer/SC/CC/VBC/FOV/FOVSlider" to="." method="_on_FOVSlider_value_changed"]
+[connection signal="value_changed" from="BG/FG/SettingsContainer/SC/CC/VBC/MouseSens/SensSlider" to="." method="_on_SensSlider_value_changed"]
+[connection signal="value_changed" from="BG/FG/SettingsContainer/SC/CC/VBC/ZoomPercent/ZoomSensSlider" to="." method="_on_ZoomSensSlider_value_changed"]
+[connection signal="pressed" from="BG/FG/SettingsContainer/ApplySettings" to="." method="_on_ApplySettings_pressed"]
+[connection signal="text_changed" from="BG/FG/AccountDetailsContainer/VBC/HBC/UsernameField" to="." method="_on_UsernameField_text_changed"]
+[connection signal="pressed" from="BG/FG/AccountDetailsContainer/VBC/HBC/ChangeUsername" to="." method="_on_ChangeUsername_pressed"]
+[connection signal="pressed" from="BG/FG/AccountDetailsContainer/VBC/HBC/ConfirmChangeUsername" to="." method="_on_ConfirmChangeUsername_pressed"]
+[connection signal="text_changed" from="BG/FG/AccountDetailsContainer/VBC/HBC2/OldPasswordField" to="." method="_on_OldPasswordField_text_changed"]
+[connection signal="text_changed" from="BG/FG/AccountDetailsContainer/VBC/HBC2/NewPasswordField" to="." method="_on_NewPasswordField_text_changed"]
+[connection signal="pressed" from="BG/FG/AccountDetailsContainer/VBC/HBC2/ChangePassword" to="." method="_on_ChangePassword_pressed"]
+[connection signal="pressed" from="BG/FG/AccountDetailsContainer/VBC/HBC2/ConfirmChangePassword" to="." method="_on_ConfirmChangePassword_pressed"]

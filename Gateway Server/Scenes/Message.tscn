@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="Label" type="Label"]
+margin_right = 1025.0
+margin_bottom = 27.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
